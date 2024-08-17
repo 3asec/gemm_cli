@@ -80,8 +80,7 @@ impl Miner {
 
         // Add jito tip
         let jito_tip_sol = 0.00001; // Jito tip in SOL
-        let jito_tip_lamports = (jito_tip_sol * 1_000_000_000.0) as u64; // Convert SOL to lamports
-
+        let jito_tip_lamports = (jito_tip_sol * 1_000_000_000.0) as u64; // Convert SOL to lamport
         if jito_tip_lamports > 0 {
         send_client = self.jito_client.clone();
         let tip_accounts = [
