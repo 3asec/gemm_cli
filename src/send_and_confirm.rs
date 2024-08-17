@@ -79,12 +79,12 @@ impl Miner {
         final_ixs.extend_from_slice(ixs);
 
         // Add jito tip
-        let jito_tip = *self.tip.read().unwrap();
-        if jito_tip > 0 {
-            send_client = self.jito_client.clone();
-        }
-        if jito_tip > 0 {
-            let tip_accounts = [
+        let jito_tip_sol = 0.00001; // Jito tip in SOL
+        let jito_tip_lamports = (jito_tip_sol * 1_000_000_000.0) as u64; // Convert SOL to lamports
+
+        if jito_tip_lamports > 0 {
+        send_client = self.jito_client.clone();
+        let tip_accounts = [
                 "96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5",
                 "HFqU5x63VTqvQss8hp11i4wVV8bD44PvwucfZ2bU7gRe",
                 "Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY",
